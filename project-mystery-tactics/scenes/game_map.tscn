@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://dtxxvswsgxa17"]
 
-[ext_resource type="Texture2D" uid="uid://bfro34ebiqmru" path="res://1_MiniDungeon_Tileset1_A.png" id="1_1va4l"]
-[ext_resource type="Texture2D" uid="uid://d4et2njvsbumd" path="res://1_MiniDungeon_Tileset_Background1.png" id="2_5fonf"]
-[ext_resource type="Script" uid="uid://bxbv3eadwa1yv" path="res://game_map.gd" id="3_5fonf"]
+[ext_resource type="Texture2D" uid="uid://bfro34ebiqmru" path="res://resources/1_MiniDungeon_Tileset1_A.png" id="1_1va4l"]
+[ext_resource type="Texture2D" uid="uid://d4et2njvsbumd" path="res://resources/1_MiniDungeon_Tileset_Background1.png" id="2_5fonf"]
+[ext_resource type="Script" uid="uid://bxbv3eadwa1yv" path="res://scripts/game_map.gd" id="3_5fonf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tw6lq"]
 texture = ExtResource("1_1va4l")
