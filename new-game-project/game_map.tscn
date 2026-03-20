@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bfro34ebiqmru" path="res://1_MiniDungeon_Tileset1_A.png" id="1_1va4l"]
 [ext_resource type="Texture2D" uid="uid://d4et2njvsbumd" path="res://1_MiniDungeon_Tileset_Background1.png" id="2_5fonf"]
+[ext_resource type="Script" uid="uid://bxbv3eadwa1yv" path="res://game_map.gd" id="3_5fonf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tw6lq"]
 texture = ExtResource("1_1va4l")
@@ -63,7 +64,6 @@ resource_local_to_scene = true
 sources/1 = SubResource("TileSetAtlasSource_tw6lq")
 sources/2 = SubResource("TileSetAtlasSource_hrtji")
 
-[node name="GameMap" type="Node2D" unique_id=2127747198]
-
-[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=517457990]
+[node name="TileMapLayer" type="TileMapLayer" unique_id=517457990]
 tile_set = SubResource("TileSet_55amd")
+script = ExtResource("3_5fonf")

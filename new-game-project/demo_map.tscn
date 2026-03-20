@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://dcemdduues8xb"]
+
+[ext_resource type="PackedScene" uid="uid://dtxxvswsgxa17" path="res://game_map.tscn" id="1_ihl22"]
+[ext_resource type="Texture2D" uid="uid://bfro34ebiqmru" path="res://1_MiniDungeon_Tileset1_A.png" id="2_ywkik"]
+[ext_resource type="Texture2D" uid="uid://d4et2njvsbumd" path="res://1_MiniDungeon_Tileset_Background1.png" id="3_ofcdo"]
+[ext_resource type="PackedScene" uid="uid://oea2uyph2jxn" path="res://character.tscn" id="4_yjjny"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_n3c11"]
+texture = ExtResource("2_ywkik")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vipss"]
+texture = ExtResource("3_ofcdo")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_ihl22"]
+resource_local_to_scene = true
+sources/1 = SubResource("TileSetAtlasSource_n3c11")
+sources/2 = SubResource("TileSetAtlasSource_vipss")
+
+[node name="DemoMap" type="Node2D" unique_id=320149445]
+
+[node name="GameMap" parent="." unique_id=2127747198 instance=ExtResource("1_ihl22")]
+tile_set = SubResource("TileSet_ihl22")
+
+[node name="EnemyUnit1" parent="." unique_id=1574827529 instance=ExtResource("4_yjjny")]
+
+[node name="Character" parent="." unique_id=1826547976 instance=ExtResource("4_yjjny")]
