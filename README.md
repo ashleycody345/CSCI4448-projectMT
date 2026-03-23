@@ -18,3 +18,5 @@ Classes and interfaces: found in /project-mystery-tactics/scripts/[script_name].
 Tests: located in /project-mystery-tactics/tests/
 - automated test scenes with enemy characters on separate teams, located in /project-mystery-tactics/tests/scenes
 - test cases run against these scenes, located in /project-mystery-tactics/tests/scripts
+
+Credit to Atomic Realm Assets on [itch.io](https://atomicrealm.itch.io/) for [foreground and background tileset assets](https://atomicrealm.itch.io/mini-dungeon-tileset)
