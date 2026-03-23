@@ -57,3 +57,38 @@ func _process(delta: float) -> void:
 
 func isDead() -> bool:
 	return (hp <= 0)
+	
+func calculateDamage(atk: int, def: int) -> int:
+	var dmg = atk - def
+	return max(dmg, 0)
+
+# Simulate a fight between self and a target Character
+func fight(target: Character) -> void:
+	# if I am a HEAL type character, then do not let target counterattack!
+	if(self.ATK_TYPE == DamageType.HEAL):
+		fightTurnHeal(self, target)
+		return
+	
+	# determine who goes first, then calculate damage
+	if(self.SPD >= target.SPD):
+		# I go first, then enemy
+		fightTurn(self, target)
+		fightTurn(target, self)
+	else:
+		# enemy goes first, then me
+		fightTurn(target, self)
+		fightTurn(self, target)
+	return
+
+# Simulate a single turn of a fight between two characters. Returns amount of remaining defender HP
+func fightTurn(attacker: Character, defender: Character) -> int:
+	var attack_power: int = attacker.ATK
+	var defend_power: int = defender.DEF
+	if(attacker.ATK_TYPE == DamageType.MAG): defend_power = defender.RES
+	defender.hp = calculateDamage(attack_power, defend_power)
+	return defender.hp
+
+# Simulate a heal turn against a single target. Return target's new HP
+func fightTurnHeal(healer: Character, target: Character) -> int:
+	target.hp = min(target.max_hp, healer.ATK + target.hp)
+	return target.hp

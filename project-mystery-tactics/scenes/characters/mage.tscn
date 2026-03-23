@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://vrt0071ouq5n"]
 
-[ext_resource type="Script" uid="uid://cpykx1jc5ebh6" path="res://mage.gd" id="1_kyawm"]
+[ext_resource type="Script" uid="uid://cpykx1jc5ebh6" path="res://scripts/characters/mage.gd" id="1_kyawm"]
 
 [node name="Mage" type="Node2D" unique_id=1238420184]
 script = ExtResource("1_kyawm")
