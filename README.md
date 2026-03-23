@@ -13,6 +13,7 @@ Design patterns:
 
 Classes and interfaces: found in /project-mystery-tactics/scripts/[script_name].gd
 - character class in character.gd (used as a base for player and computer controlled characters, inheriting and using polymorphism to repurpose methods based on character type)
+- - character classes currently use polymorphism in their _ready() functions to change their stats based on set properties
 - game_map class in game_map.gd
 
 Tests: located in /project-mystery-tactics/scenes/tests/[test_name].tscn
