@@ -83,8 +83,13 @@ func fight(target: Character) -> void:
 # Simulate a single turn of a fight between two characters. Returns amount of remaining defender HP
 func fightTurn(attacker: Character, defender: Character) -> int:
 	var attack_power: int = attacker.ATK
+	
+	# set appropriate defense stat
 	var defend_power: int = defender.DEF
 	if(attacker.ATK_TYPE == DamageType.MAG): defend_power = defender.RES
+	# do nothing if attacker is HEAL type
+	if(attacker.ATK_TYPE == DamageType.HEAL): return defender.hp
+	 
 	defender.hp = calculateDamage(attack_power, defend_power)
 	return defender.hp
 
