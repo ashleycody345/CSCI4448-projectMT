@@ -16,6 +16,6 @@ Classes and interfaces: found in /project-mystery-tactics/scripts/[script_name].
 - - character classes currently use polymorphism in their _ready() functions to change their stats based on set properties
 - game_map class in game_map.gd
 
-Tests: located in /project-mystery-tactics/scenes/tests/[test_name].tscn
-- automated test scenes with enemy characters on separate teams
-- test cases run against these scenes, located in /project-mystery-tactics/scripts/tests
+Tests: located in /project-mystery-tactics/tests/
+- automated test scenes with enemy characters on separate teams, located in /project-mystery-tactics/tests/scenes
+- test cases run against these scenes, located in /project-mystery-tactics/tests/scripts
