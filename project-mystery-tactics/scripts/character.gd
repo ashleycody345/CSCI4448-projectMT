@@ -7,7 +7,7 @@ const DEFAULT_ATK = 1
 const DEFAULT_DMG_TYPE = DamageType.PHYS
 const DEFAULT_DEF = 1
 const DEFAULT_RES = 1
-const DEFAULT_SPD = 5
+const DEFAULT_SPD = 1
 
 enum Team {
 	PLAYER,
@@ -18,7 +18,8 @@ enum Team {
 
 enum DamageType {
 	PHYS,
-	MAG
+	MAG,
+	HEAL
 }
 
 ### member variables
@@ -32,16 +33,16 @@ var hp: int = max_hp
 # Controls which team a player is on: 0 = player, 1 = enemy, 2 = allied (player), 3 = no team
 @export var team: Team = Team.NONE
 
-# ATK determines damage output
-@export var ATK: int = DEFAULT_ATK
-# ATK_TYPE determines type of attack
+# ATK determines damage output or heal output based on ATK_TYPE
+var ATK: int = DEFAULT_ATK
+# ATK_TYPE determines type of attack, intrinsic to character subclass
 var ATK_TYPE: DamageType = DEFAULT_DMG_TYPE
 # DEF determines physical damage resistance: damage = ATK - DEF
-@export var DEF: int = DEFAULT_DEF
+var DEF: int = DEFAULT_DEF
 # RES determines magic damage resistance: damage = ATK - RES
-@export var RES: int = DEFAULT_RES
+var RES: int = DEFAULT_RES
 # SPD determines which unit attacks first in combat - if SPD is equal, then attacker goes first
-@export var SPD: int = DEFAULT_SPD
+var SPD: int = DEFAULT_SPD
 
 
 # Called when the node enters the scene tree for the first time.

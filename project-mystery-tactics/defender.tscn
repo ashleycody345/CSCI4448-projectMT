@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://cosxmhnw1hoct"]
+
+[ext_resource type="Script" uid="uid://qu5w61wuy0ew" path="res://defender.gd" id="1_hl4wy"]
+
+[node name="Defender" type="Node2D" unique_id=874577768]
+script = ExtResource("1_hl4wy")
+metadata/_custom_type_script = "uid://crq6b7b7p75gc"
