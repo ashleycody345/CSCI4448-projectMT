@@ -42,7 +42,7 @@ func runTests() -> bool:
 func testCombatWithFighters() -> bool:
 	# both fighters should lose health equal to atk-def
 	fighter1.fight(fighter2)
-	if(fighter1.hp == fighter2.ATK - fighter1.DEF): return true
+	if(fighter1.hp == fighter1.max_hp - (fighter2.ATK - fighter1.DEF)): return true
 	else: return false
 
 func testCombatWithFighterAndCleric() -> bool:
@@ -55,9 +55,10 @@ func testCombatWithFighterAndCleric() -> bool:
 	
 func testCombatAgainstCleric() -> bool:
 	# fighter2 should attack cleric and should not lose health
+	var initial_hp = fighter2.hp
 	fighter2.fight(cleric1)
 	if(cleric1.hp != cleric1.max_hp - (fighter2.ATK - cleric1.DEF)): return false
-	if(fighter2.hp != fighter2.max_hp): return false
+	if(fighter2.hp != initial_hp): return false
 	return true
 	
 func testCombatWithFighterAndMage() -> bool:

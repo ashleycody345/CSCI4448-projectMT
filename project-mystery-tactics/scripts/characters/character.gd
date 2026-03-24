@@ -91,7 +91,7 @@ func fightTurn(attacker: Character, defender: Character) -> int:
 	# do nothing if attacker is HEAL type
 	if(attacker.ATK_TYPE == DamageType.HEAL): return defender.hp
 	 
-	defender.hp = calculateDamage(attack_power, defend_power)
+	defender.hp = defender.hp - calculateDamage(attack_power, defend_power)
 	return defender.hp
 
 # Simulate a heal turn against a single target. Return target's new HP
