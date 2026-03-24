@@ -1,5 +1,7 @@
 extends Character
 
+class_name Defender
+
 const DEFENDER_ATK_TYPE = DamageType.PHYS
 # default stats, can be modified
 @export var DEFENDER_ATK = 4

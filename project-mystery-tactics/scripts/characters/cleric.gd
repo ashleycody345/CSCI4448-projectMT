@@ -1,5 +1,7 @@
 extends Character
 
+class_name Cleric
+
 const CLERIC_ATK_TYPE = DamageType.HEAL
 # default stats, can be modified
 @export var CLERIC_ATK = 6

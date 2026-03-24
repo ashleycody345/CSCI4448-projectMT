@@ -1,5 +1,7 @@
 extends Character
 
+class_name Mage
+
 const MAGE_ATK_TYPE = DamageType.MAG
 # default stats, can be modified
 @export var MAGE_ATK = 8
