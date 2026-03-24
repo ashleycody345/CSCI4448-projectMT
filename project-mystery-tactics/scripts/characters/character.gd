@@ -27,7 +27,7 @@ enum DamageType {
 ## character properties
 # hit points: upon reaching 0, character dies 
 @export var max_hp: int = DEFAULT_HP
-var hp: int = max_hp
+var hp: int
 # Controls whether entity can be controlled by player or computer
 @export var is_player: bool = false 	
 # Controls which team a player is on: 0 = player, 1 = enemy, 2 = allied (player), 3 = no team
@@ -44,6 +44,8 @@ var RES: int = DEFAULT_RES
 # SPD determines which unit attacks first in combat - if SPD is equal, then attacker goes first
 var SPD: int = DEFAULT_SPD
 
+func _init() -> void:
+	hp = max_hp
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

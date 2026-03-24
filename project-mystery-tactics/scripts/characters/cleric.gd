@@ -9,10 +9,11 @@ const CLERIC_ATK_TYPE = DamageType.HEAL
 @export var CLERIC_RES = 8
 @export var CLERIC_SPD = 4
 
-func _ready() -> void:
+func _init() -> void:
 	# Rewrite stats for this subclass
 	ATK_TYPE = CLERIC_ATK_TYPE
 	ATK = CLERIC_ATK
 	DEF = CLERIC_DEF
 	RES = CLERIC_RES
 	SPD = CLERIC_SPD
+	super()

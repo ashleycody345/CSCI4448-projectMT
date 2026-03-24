@@ -9,10 +9,11 @@ const DEFENDER_ATK_TYPE = DamageType.PHYS
 @export var DEFENDER_RES = 4
 @export var DEFENDER_SPD = 3
 
-func _ready() -> void:
+func _init() -> void:
 	# Rewrite stats for this subclass
 	ATK_TYPE = DEFENDER_ATK_TYPE
 	ATK = DEFENDER_ATK
 	DEF = DEFENDER_DEF
 	RES = DEFENDER_RES
 	SPD = DEFENDER_SPD
+	super()
