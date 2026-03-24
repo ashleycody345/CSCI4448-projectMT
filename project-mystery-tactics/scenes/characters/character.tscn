@@ -2,13 +2,6 @@
 
 [ext_resource type="Script" uid="uid://crq6b7b7p75gc" path="res://scripts/characters/character.gd" id="1_glpr6"]
 
-[sub_resource type="CanvasTexture" id="CanvasTexture_agfs1"]
-
 [node name="Character" type="Node2D" unique_id=226386249]
 script = ExtResource("1_glpr6")
 metadata/_custom_type_script = "uid://crq6b7b7p75gc"
-
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=111015516]
-position = Vector2(26.25, 22.250002)
-scale = Vector2(203.5, 139.5)
-texture = SubResource("CanvasTexture_agfs1")
