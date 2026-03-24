@@ -8,7 +8,7 @@ Created by Ashley Cody and Olivia Newton
 
 Design patterns:
 - 1) Observer pattern: Much of the logic of the game should be handled by the objects in the game without worrying about how they are represented graphically in the game's interface. For the purposes of monitoring, displaying, and eventually animating actions and events in the game, we should use observers to notify them when something happens (a character takes damage, a fight begins, etc.)
-- 2) pattern 2
+- 2) Factory pattern: Our characters take many different forms, as there are many roles that characters can fill. Fighters that specialize in physical combat, mages that use magic attacks, clerics that can heal targets, and defenders with high defensive stats are all possible to create. To reduce coupling with the constructors for each of these unique types of character, we use the factory design pattern when creating instances of these objects in a scene.
 - 3) pattern 3
 
 Classes and interfaces: found in /project-mystery-tactics/scripts/[script_name].gd
