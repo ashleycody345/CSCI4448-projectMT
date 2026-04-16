@@ -3,5 +3,6 @@
 [ext_resource type="Script" uid="uid://crq6b7b7p75gc" path="res://scripts/characters/character.gd" id="1_glpr6"]
 
 [node name="Character" type="Node2D" unique_id=226386249]
+scale = Vector2(0.5, 0.5)
 script = ExtResource("1_glpr6")
 metadata/_custom_type_script = "uid://crq6b7b7p75gc"

@@ -56,12 +56,14 @@ var sprite_name: String = "res://resources/circle.png"
 func _init() -> void:
 	loadSprite()
 	hp = max_hp
-	map_pos = start_pos
+	
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	
+	map_pos = start_pos
+	self.scale.x = 0.5
+	self.scale.y = 0.5
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
