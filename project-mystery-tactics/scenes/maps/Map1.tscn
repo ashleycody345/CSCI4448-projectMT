@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://besptowiqyitv"]
 
 [ext_resource type="Texture2D" uid="uid://bfro34ebiqmru" path="res://resources/1_MiniDungeon_Tileset1_A.png" id="1_k8dhs"]
-[ext_resource type="Script" uid="uid://d1mbynltfxqgk" path="res://scenes/maps/map.gd" id="2_fp56n"]
+[ext_resource type="Script" uid="uid://d1mbynltfxqgk" path="res://scripts/map.gd" id="2_fp56n"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_k8dhs"]
 vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
