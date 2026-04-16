@@ -16,4 +16,6 @@ func _init() -> void:
 	DEF = MAGE_DEF
 	RES = MAGE_RES
 	SPD = MAGE_SPD
+	
+	char_name = "Mage"
 	super()

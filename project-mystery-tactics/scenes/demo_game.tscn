@@ -2,11 +2,19 @@
 
 [ext_resource type="Script" uid="uid://crq6b7b7p75gc" path="res://scripts/characters/character.gd" id="1_q5dop"]
 [ext_resource type="PackedScene" uid="uid://besptowiqyitv" path="res://scenes/maps/Map1.tscn" id="2_agcdf"]
+[ext_resource type="Script" uid="uid://bt208w58x2b0h" path="res://scripts/characters/fighter.gd" id="3_5upbm"]
 
 [node name="DemoGame" type="Node2D" unique_id=320149445]
 
 [node name="map" parent="." unique_id=924313647 instance=ExtResource("2_agcdf")]
+position = Vector2(304, 116)
+scale = Vector2(1.5, 1.5)
 
 [node name="Character" type="Node2D" parent="map" unique_id=765100161]
 script = ExtResource("1_q5dop")
+start_pos = Vector2i(5, 5)
 metadata/_custom_type_script = "uid://crq6b7b7p75gc"
+
+[node name="Fighter" type="Node2D" parent="map" unique_id=632117904]
+script = ExtResource("3_5upbm")
+metadata/_custom_type_script = "uid://bt208w58x2b0h"

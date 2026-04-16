@@ -16,4 +16,6 @@ func _init() -> void:
 	DEF = CLERIC_DEF
 	RES = CLERIC_RES
 	SPD = CLERIC_SPD
+	
+	char_name = "Cleric"
 	super()

@@ -2,6 +2,8 @@ extends Node2D
 
 class_name Character
 
+var char_name: String = "Character"
+
 const DEFAULT_HP = 100
 const DEFAULT_ATK = 1
 const DEFAULT_DMG_TYPE = DamageType.PHYS
@@ -32,6 +34,9 @@ var hp: int
 @export var is_player: bool = false 	
 # Controls which team a player is on: 0 = player, 1 = enemy, 2 = allied (player), 3 = no team
 @export var team: Team = Team.NONE
+# Location on map to start on
+@export var start_pos: Vector2i
+var map_pos: Vector2i
 
 # ATK determines damage output or heal output based on ATK_TYPE
 var ATK: int = DEFAULT_ATK
@@ -46,16 +51,13 @@ var SPD: int = DEFAULT_SPD
 
 # character sprite
 var sprite: Sprite2D
+var sprite_name: String = "res://resources/circle.png"
 
 func _init() -> void:
-	hp = max_hp
 	loadSprite()
+	hp = max_hp
+	map_pos = start_pos
 
-func loadSprite() -> void:
-	sprite = Sprite2D.new()
-	sprite.texture = load("res://resources/circle.png")
-	self.add_child(sprite)
-	
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -64,7 +66,6 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-
 	pass
 
 func isDead() -> bool:
@@ -109,3 +110,8 @@ func fightTurn(attacker: Character, defender: Character) -> int:
 func fightTurnHeal(healer: Character, target: Character) -> int:
 	target.hp = min(target.max_hp, healer.ATK + target.hp)
 	return target.hp
+	
+func loadSprite() -> void:
+	sprite = Sprite2D.new()
+	sprite.texture = load(sprite_name)
+	self.add_child(sprite)
