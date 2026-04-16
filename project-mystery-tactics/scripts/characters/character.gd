@@ -44,8 +44,18 @@ var RES: int = DEFAULT_RES
 # SPD determines which unit attacks first in combat - if SPD is equal, then attacker goes first
 var SPD: int = DEFAULT_SPD
 
+# character sprite
+var sprite: Sprite2D
+
 func _init() -> void:
 	hp = max_hp
+	loadSprite()
+
+func loadSprite() -> void:
+	sprite = Sprite2D.new()
+	sprite.texture = load("res://resources/circle.png")
+	self.add_child(sprite)
+	
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -54,7 +64,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	
+
 	pass
 
 func isDead() -> bool:
