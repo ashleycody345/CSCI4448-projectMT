@@ -4,8 +4,6 @@
 [ext_resource type="PackedScene" uid="uid://besptowiqyitv" path="res://scenes/maps/Map1.tscn" id="2_agcdf"]
 [ext_resource type="Script" uid="uid://bt208w58x2b0h" path="res://scripts/characters/fighter.gd" id="3_5upbm"]
 [ext_resource type="Script" uid="uid://cpykx1jc5ebh6" path="res://scripts/characters/mage.gd" id="4_vu6cn"]
-[ext_resource type="Script" uid="uid://qu5w61wuy0ew" path="res://scripts/characters/defender.gd" id="5_frqvl"]
-[ext_resource type="Script" uid="uid://b7qbv236cpesm" path="res://scripts/characters/cleric.gd" id="6_n1nvq"]
 
 [node name="DemoGame" type="Node2D" unique_id=320149445]
 
@@ -32,16 +30,3 @@ script = ExtResource("4_vu6cn")
 team = 1
 start_pos = Vector2i(7, 11)
 metadata/_custom_type_script = "uid://cpykx1jc5ebh6"
-
-[node name="Defender" type="Node2D" parent="map" unique_id=2101662559]
-script = ExtResource("5_frqvl")
-team = 1
-start_pos = Vector2i(8, 11)
-metadata/_custom_type_script = "uid://qu5w61wuy0ew"
-
-[node name="Cleric" type="Node2D" parent="map" unique_id=802705356]
-script = ExtResource("6_n1nvq")
-is_player = true
-team = 0
-start_pos = Vector2i(6, 14)
-metadata/_custom_type_script = "uid://b7qbv236cpesm"

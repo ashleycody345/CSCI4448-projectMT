@@ -54,20 +54,27 @@ var MOV: int = DEFAULT_MOV
 
 # character sprite
 var sprite: Sprite2D
-var sprite_name: String = "res://resources/circle.png"
+var sprite_name: String
+
+# sprite names
+const PLAYER_SPRITE = "res://resources/circle.png"
+const ENEMY_SPRITE = "res://resources/circle_red.png"
 
 func _init() -> void:
-	loadSprite()
 	hp = max_hp
-	
-
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	map_pos = start_pos
 	self.scale.x = 0.5
 	self.scale.y = 0.5
-	pass
+	# load appropriate sprite
+	if(team == Team.ENEMY):
+		sprite_name = ENEMY_SPRITE
+	else:
+		sprite_name = PLAYER_SPRITE
+	loadSprite()
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
