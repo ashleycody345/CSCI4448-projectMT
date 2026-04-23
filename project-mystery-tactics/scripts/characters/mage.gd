@@ -8,6 +8,7 @@ const MAGE_ATK_TYPE = DamageType.MAG
 @export var MAGE_DEF = 2
 @export var MAGE_RES = 4
 @export var MAGE_SPD = 5
+@export var MAGE_MOV = 5
 
 func _init() -> void:
 	# Rewrite stats for this subclass
@@ -16,6 +17,7 @@ func _init() -> void:
 	DEF = MAGE_DEF
 	RES = MAGE_RES
 	SPD = MAGE_SPD
+	MOV = MAGE_MOV
 	
 	char_name = "Mage"
 	super()

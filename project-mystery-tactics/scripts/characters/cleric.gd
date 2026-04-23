@@ -8,6 +8,7 @@ const CLERIC_ATK_TYPE = DamageType.HEAL
 @export var CLERIC_DEF = 2
 @export var CLERIC_RES = 8
 @export var CLERIC_SPD = 4
+@export var CLERIC_MOV = 3
 
 func _init() -> void:
 	# Rewrite stats for this subclass
@@ -16,6 +17,7 @@ func _init() -> void:
 	DEF = CLERIC_DEF
 	RES = CLERIC_RES
 	SPD = CLERIC_SPD
+	MOV = CLERIC_MOV
 	
 	char_name = "Cleric"
 	super()

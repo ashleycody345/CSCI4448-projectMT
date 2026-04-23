@@ -8,6 +8,7 @@ const DEFENDER_ATK_TYPE = DamageType.PHYS
 @export var DEFENDER_DEF = 6
 @export var DEFENDER_RES = 4
 @export var DEFENDER_SPD = 3
+@export var DEFENDER_MOV = 3
 
 func _init() -> void:
 	# Rewrite stats for this subclass
@@ -16,6 +17,7 @@ func _init() -> void:
 	DEF = DEFENDER_DEF
 	RES = DEFENDER_RES
 	SPD = DEFENDER_SPD
+	MOV = DEFENDER_MOV
 	
 	char_name = "Defender"
 	super()

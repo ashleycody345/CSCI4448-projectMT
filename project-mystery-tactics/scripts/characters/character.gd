@@ -10,6 +10,7 @@ const DEFAULT_DMG_TYPE = DamageType.PHYS
 const DEFAULT_DEF = 1
 const DEFAULT_RES = 1
 const DEFAULT_SPD = 1
+const DEFAULT_MOV = 6
 
 enum Team {
 	PLAYER,
@@ -48,6 +49,8 @@ var DEF: int = DEFAULT_DEF
 var RES: int = DEFAULT_RES
 # SPD determines which unit attacks first in combat - if SPD is equal, then attacker goes first
 var SPD: int = DEFAULT_SPD
+# MOV determines how many spaces (up, down, left, right) a unit can travel
+var MOV: int = DEFAULT_MOV
 
 # character sprite
 var sprite: Sprite2D
