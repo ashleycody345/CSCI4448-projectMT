@@ -12,9 +12,10 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	for character in children:
 		set_map_pos(character)
-	process_input()
+	process_input_select()
+	
 
-func process_input() -> void:
+func process_input_select() -> void:
 	# child selection
 	var child_hovered_over: Character = select_child_hovered_over()
 	if(child_hovered_over == null): return
@@ -30,9 +31,13 @@ func set_map_pos(character: Character) -> void:
 func select_child_hovered_over() -> Character:
 	var map_tile_hovered: Vector2i = local_to_map(get_local_mouse_position())
 	var char_hovered: Character
-	var char_name: String 
 	for child in children:
 		if(child.map_pos == map_tile_hovered):
 			char_hovered = child
 			break
 	return char_hovered
+
+func can_navigate_tile(tile: Vector2i, layer: int = 0) -> bool:
+	var tile_data: TileData = get_cell_tile_data(tile)
+	if(tile_data == null): return false
+	return tile_data.get_navigation_polygon(0) != null
