@@ -4,7 +4,7 @@ class_name CharacterBuilder
 
 var character: Character
 
-func _init(_delta: float) -> void:
+func _init() -> void:
 	character = Character.new()
 	
 func set_atk(atk: int) -> CharacterBuilder:
