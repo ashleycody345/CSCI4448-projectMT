@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://bsmjg74nflaac"]
+
+[ext_resource type="Script" uid="uid://cim5x4i3vi7jq" path="res://scripts/characters/decorated_character.gd" id="1_83ov8"]
+
+[node name="DecoratedCharacter" type="Node2D" unique_id=2093285090]
+script = ExtResource("1_83ov8")
+metadata/_custom_type_script = "uid://crq6b7b7p75gc"
