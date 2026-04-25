@@ -7,9 +7,11 @@ Created by Ashley Cody and Olivia Newton
 ---
 
 Design patterns:
-- 1) Observer pattern: Much of the logic of the game should be handled by the objects in the game without worrying about how they are represented graphically in the game's interface. For the purposes of monitoring, displaying, and eventually animating actions and events in the game, we should use observers to notify them when something happens (a character takes damage, a fight begins, etc.)
+- 1) Builder pattern: Many characters may need to be created with particular attributes in tests and may require certain items in their inventories. As a result, we use the builder pattern to facilitate concise creation of these characters with the attributes requested.
 - 2) Factory pattern: Our characters take many different forms, as there are many roles that characters can fill. Fighters that specialize in physical combat, mages that use magic attacks, clerics that can heal targets, and defenders with high defensive stats are all possible to create. To reduce coupling with the constructors for each of these unique types of character, we use the factory design pattern when creating instances of these objects in a scene.
 - 3) Command pattern: Our code needs to be flexible to handle both automatic computer generated inputs, and player generated inputs. As a result, we intend to use the command design pattern to handle user input and direct it to our objects to ensure versatility and reliability
+- 4) Strategy pattern: Both the computer and the player need to be able to control characters, so the strategy pattern allows us to separate a player control strategy from computer controlled input strategies.
+- 5) Decorator pattern: Characters can be modified by the items they use, which are implemented with the decorator pattern. An item can modify a character's stats and increase their capabilities, which is done by wrapping it with another character.  
 
 Classes and interfaces: found in /project-mystery-tactics/scripts/[script_name].gd
 - character class in character.gd (used as a base for player and computer controlled characters, inheriting and using polymorphism to repurpose methods based on character type)
