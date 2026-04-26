@@ -15,8 +15,21 @@ func _process(delta: float) -> void:
 		set_map_pos(character)
 	process_input_select()
 	
+	run_turn()
+		
+	
 	
 
+func run_turn() -> void:
+	var current_character = children[turn]
+	if current_character.isDead():
+		next_turn()
+	else:
+		var action: Command = current_character.selectAction()
+		if action == null:
+			return
+		if action.execute(current_character):
+			next_turn()
 
 func process_input_select() -> void:
 	# child selection
@@ -78,3 +91,8 @@ func get_navigable_tiles_start_pos(start_pos: Vector2i, mov: int, init: bool = f
 	if(!(right in tiles)):
 		tiles.append_array(get_navigable_tiles_start_pos(right, mov - 1))
 	return tiles
+
+func next_turn() -> void:
+	turn += 1
+	if turn == children.size():
+		turn = 0
