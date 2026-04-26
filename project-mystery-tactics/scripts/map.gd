@@ -92,7 +92,17 @@ func get_navigable_tiles_start_pos(start_pos: Vector2i, mov: int, init: bool = f
 		tiles.append_array(get_navigable_tiles_start_pos(right, mov - 1))
 	return tiles
 
-func next_turn() -> void:
-	turn += 1
-	if turn == children.size():
-		turn = 0
+func next_turn() -> bool:
+	var start_turn: int = turn
+	while true:
+		turn += 1
+		if turn == children.size():
+			turn = 0
+		if turn == start_turn:
+			break
+		if !children[turn].isDead():
+			print("Now " + children[turn].char_name + "'s turn")
+			return true
+	return false
+	
+	
