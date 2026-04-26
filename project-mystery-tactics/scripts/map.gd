@@ -1,5 +1,7 @@
 extends TileMapLayer
 
+class_name GameMap
+
 var children: Array[Character]
 var selected_unit: Character = null
 var turn: int = 0
@@ -22,7 +24,7 @@ func _process(delta: float) -> void:
 
 func run_turn() -> void:
 	var current_character = children[turn]
-	var action: Command = current_character.selectAction()
+	var action: Command = current_character.selectAction(self)
 	if action == null:
 		return
 	if action.execute(current_character):
@@ -67,27 +69,24 @@ func tile_contains_character(tile: Vector2i) -> bool:
 	return false
 
 func get_navigable_tiles(unit: Character) -> Array[Vector2i]:
-	return get_navigable_tiles_start_pos(unit.map_pos, unit.MOV, true)
+	return get_navigable_tiles_start_pos(unit.map_pos, unit.MOV)
 
-func get_navigable_tiles_start_pos(start_pos: Vector2i, mov: int, init: bool = false) -> Array[Vector2i]:
-	var tiles: Array[Vector2i]
-	# if current tile cannot be traversed, early return
-	if((!can_navigate_tile(start_pos) && !init) || mov == 0): return tiles
+func get_navigable_tiles_start_pos(start_pos: Vector2i, mov: int) -> Array[Vector2i]:
+	var tiles: Array[Vector2i] = [start_pos]
 	
-	tiles.append(start_pos)
-	var up: Vector2i = Vector2i(start_pos.x, start_pos.y - 1)
-	var down: Vector2i = Vector2i(start_pos.x, start_pos.y + 1)
-	var left: Vector2i = Vector2i(start_pos.x - 1, start_pos.y)
-	var right: Vector2i = Vector2i(start_pos.x + 1, start_pos.y)
+	for i in range(mov):
+		var new_tiles: Array[Vector2i] = tiles.duplicate()
+		for tile in tiles:
+			var up: Vector2i = Vector2i(tile.x, tile.y - 1)
+			var down: Vector2i = Vector2i(tile.x, tile.y + 1)
+			var left: Vector2i = Vector2i(tile.x - 1, tile.y)
+			var right: Vector2i = Vector2i(tile.x + 1, tile.y)
+			
+			for neighbor in [up, down, left, right]:
+				if(!(neighbor in new_tiles) && can_navigate_tile(neighbor)):
+					new_tiles.append(neighbor)
+		tiles = new_tiles
 	
-	if(!(up in tiles)):
-		tiles.append_array(get_navigable_tiles_start_pos(up, mov - 1))
-	if(!(down in tiles)):
-		tiles.append_array(get_navigable_tiles_start_pos(down, mov - 1))
-	if(!(left in tiles)):
-		tiles.append_array(get_navigable_tiles_start_pos(left, mov - 1))
-	if(!(right in tiles)):
-		tiles.append_array(get_navigable_tiles_start_pos(right, mov - 1))
 	return tiles
 
 func next_turn() -> bool:

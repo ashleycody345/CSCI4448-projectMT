@@ -14,4 +14,4 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-@abstract func selectAction(myself: Character) -> Command
+@abstract func selectAction(myself: Character, map: GameMap) -> Command

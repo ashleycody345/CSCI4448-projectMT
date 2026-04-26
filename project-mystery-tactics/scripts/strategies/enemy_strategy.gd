@@ -12,5 +12,5 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-func selectAction(myself: Character) -> Command:
+func selectAction(myself: Character, map: GameMap) -> Command:
 	return SleepCommand.new()

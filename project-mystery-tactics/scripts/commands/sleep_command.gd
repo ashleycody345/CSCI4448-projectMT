@@ -15,3 +15,4 @@ func _process(delta: float) -> void:
 func execute(myself: Character) -> bool:
 	print(myself.char_name + " sleeps")
 	return true
+	

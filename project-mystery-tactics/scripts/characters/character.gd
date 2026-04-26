@@ -87,8 +87,8 @@ func _process(delta: float) -> void:
 func isDead() -> bool:
 	return (hp <= 0)
 
-func selectAction() -> Command:
-	return strategy.selectAction(self)
+func selectAction(map: GameMap) -> Command:
+	return strategy.selectAction(self, map)
 	
 func calculateDamage(atk: int, def: int) -> int:
 	var dmg = atk - def
