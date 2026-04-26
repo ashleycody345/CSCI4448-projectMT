@@ -13,4 +13,4 @@ func _process(delta: float) -> void:
 	pass
 
 func selectAction(myself: Character) -> Command:
-	return
+	return SleepCommand.new()
