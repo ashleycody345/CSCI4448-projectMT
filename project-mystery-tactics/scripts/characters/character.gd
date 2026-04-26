@@ -134,3 +134,6 @@ func loadSprite() -> void:
 	sprite = Sprite2D.new()
 	sprite.texture = load(sprite_name)
 	self.add_child(sprite)
+
+func set_map_position(new_pos: Vector2i) -> void:
+	map_pos = new_pos
