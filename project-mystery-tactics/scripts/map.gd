@@ -2,6 +2,7 @@ extends TileMapLayer
 
 var children: Array[Character]
 var selected_unit: Character = null
+var turn: int = 0
 
 func _ready() -> void:
 	var all_children = self.get_children()

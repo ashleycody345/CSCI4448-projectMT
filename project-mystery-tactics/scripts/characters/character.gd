@@ -25,6 +25,8 @@ enum DamageType {
 	HEAL
 }
 
+var strategy: Strategy
+
 ### member variables
 
 ## character properties
@@ -68,11 +70,13 @@ func _ready() -> void:
 	map_pos = start_pos
 	self.scale.x = 0.5
 	self.scale.y = 0.5
-	# load appropriate sprite
+	# load appropriate sprite and strategy
 	if(team == Team.ENEMY):
 		sprite_name = ENEMY_SPRITE
+		strategy = EnemyStrategy.new()
 	else:
 		sprite_name = PLAYER_SPRITE
+		strategy = PlayerStrategy.new()
 	loadSprite()
 	
 
@@ -82,6 +86,9 @@ func _process(delta: float) -> void:
 
 func isDead() -> bool:
 	return (hp <= 0)
+
+func selectAction() -> Command:
+	return strategy.selectAction(self)
 	
 func calculateDamage(atk: int, def: int) -> int:
 	var dmg = atk - def
