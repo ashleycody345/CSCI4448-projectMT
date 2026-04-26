@@ -15,7 +15,6 @@ scale = Vector2(1.5, 1.5)
 
 [node name="Character" type="Node2D" parent="map" unique_id=765100161]
 script = ExtResource("1_q5dop")
-max_hp = null
 is_player = true
 team = 0
 start_pos = Vector2i(4, 14)
