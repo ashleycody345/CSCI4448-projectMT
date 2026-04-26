@@ -22,14 +22,12 @@ func _process(delta: float) -> void:
 
 func run_turn() -> void:
 	var current_character = children[turn]
-	if current_character.isDead():
-		next_turn()
-	else:
-		var action: Command = current_character.selectAction()
-		if action == null:
-			return
-		if action.execute(current_character):
-			next_turn()
+	var action: Command = current_character.selectAction()
+	if action == null:
+		return
+	if action.execute(current_character):
+		if(!next_turn()):
+			game_end()
 
 func process_input_select() -> void:
 	# child selection
@@ -106,3 +104,5 @@ func next_turn() -> bool:
 	return false
 	
 	
+func game_end() -> void:
+	pass
