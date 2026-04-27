@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://7wp3lygnj7o3"]
+
+[ext_resource type="Script" uid="uid://cii8kqpfk7cqf" path="res://tests/scripts/test_strategy.gd" id="1_7ij5v"]
+
+[node name="StrategyTest" type="Node2D" unique_id=647535385]
+script = ExtResource("1_7ij5v")
