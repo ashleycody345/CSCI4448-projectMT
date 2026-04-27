@@ -76,7 +76,7 @@ func _ready() -> void:
 		strategy = EnemyStrategy.new()
 	else:
 		sprite_name = PLAYER_SPRITE
-		strategy = EnemyStrategy.new()
+		strategy = PlayerStrategy.new()
 	loadSprite()
 	
 

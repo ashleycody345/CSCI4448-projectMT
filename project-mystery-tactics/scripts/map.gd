@@ -12,13 +12,15 @@ func _ready() -> void:
 	for child in all_children:
 		if(child is Character): children.append(child)
 	print("total characters: " + str(children.size()))
+	print("GAME START")
+	print("Starting turn: " + children[turn].char_name)
 	
 func _process(delta: float) -> void:
 	if !game_over:
 		# OS.delay_msec(200)
 		for character in children:
 			set_map_pos(character)
-		process_input_select()
+		# process_input_select()
 		
 		run_turn()
 
@@ -56,6 +58,9 @@ func process_input_select() -> void:
 func set_map_pos(character: Character) -> void:
 	#print(character.char_name + " position: " + str(character.map_pos.x) + ", " + str(character.map_pos.y))
 	character.position = map_to_local(character.map_pos)
+
+func select_tile_hovered_over() -> Vector2i:
+	return local_to_map(get_local_mouse_position())
 
 func select_child_hovered_over() -> Character:
 	var map_tile_hovered: Vector2i = local_to_map(get_local_mouse_position())

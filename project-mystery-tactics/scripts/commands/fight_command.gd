@@ -24,9 +24,15 @@ func execute(myself: Character) -> bool:
 	print(myself.char_name + " moves to " + str(target.x) + ", " + str(target.y) + " and fights " + opponent.char_name)
 	myself.set_map_position(target)
 	myself.fight(opponent)
+	
+	print(myself.char_name + " now has " + str(myself.hp) + " health")
+	print(opponent.char_name + " now has " + str(opponent.hp) + " health")
+	
 	if(myself.isDead()):
-		print(opponent.char_name + " wins!")
+		print(myself.char_name + " dies!")
+	elif(opponent.isDead()):
+		print(opponent.char_name + " dies!")
 	else:
-		print(myself.char_name + " wins!")
+		print("Both survive for now...")
 	return true
 	
