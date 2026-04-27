@@ -31,6 +31,7 @@ func run_turn() -> void:
 	if action.execute(current_character):
 		if(!next_turn()):
 			game_end()
+			return
 	
 	# end game if all living characters are on the same team
 	var living_chars: Array[Character] = children.filter(func(character): return !character.isDead())
