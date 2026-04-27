@@ -5,6 +5,7 @@ class_name GameMap
 var children: Array[Character]
 var selected_unit: Character = null
 var turn: int = 0
+var game_over: bool = false
 
 func _ready() -> void:
 	var all_children = self.get_children()
@@ -13,14 +14,14 @@ func _ready() -> void:
 	print("total characters: " + str(children.size()))
 	
 func _process(delta: float) -> void:
-	for character in children:
-		set_map_pos(character)
-	process_input_select()
-	
-	run_turn()
+	if !game_over:
+		# OS.delay_msec(200)
+		for character in children:
+			set_map_pos(character)
+		process_input_select()
 		
-	
-	
+		run_turn()
+
 
 func run_turn() -> void:
 	var current_character = children[turn]
@@ -30,6 +31,13 @@ func run_turn() -> void:
 	if action.execute(current_character):
 		if(!next_turn()):
 			game_end()
+	
+	# end game if all living characters are on the same team
+	var living_chars: Array[Character] = children.filter(func(character): return !character.isDead())
+	for character in living_chars:
+		if character.team != living_chars[0].team:
+			return
+	game_end()
 
 func process_input_select() -> void:
 	# child selection
@@ -68,6 +76,11 @@ func tile_contains_character(tile: Vector2i) -> bool:
 		if(child.map_pos == tile): return true
 	return false
 
+func tile_get_character(tile: Vector2i) -> Character:
+	for child in children:
+		if(child.map_pos == tile): return child
+	return null
+
 func get_navigable_tiles(unit: Character) -> Array[Vector2i]:
 	return get_navigable_tiles_start_pos(unit.map_pos, unit.MOV)
 
@@ -89,6 +102,22 @@ func get_navigable_tiles_start_pos(start_pos: Vector2i, mov: int) -> Array[Vecto
 	
 	return tiles
 
+func get_fightable_characters(character: Character) -> Array[Character]:
+	var tiles: Array[Vector2i] = get_navigable_tiles(character)
+	var enemies: Array[Character] = []
+	for tile in tiles:
+		var up: Vector2i = Vector2i(tile.x, tile.y - 1)
+		var down: Vector2i = Vector2i(tile.x, tile.y + 1)
+		var left: Vector2i = Vector2i(tile.x - 1, tile.y)
+		var right: Vector2i = Vector2i(tile.x + 1, tile.y)
+		
+		for neighbor in [up, down, left, right]:
+			if tile_contains_character(neighbor):
+				var potential_enemy: Character = tile_get_character(neighbor)
+				if (!potential_enemy.isDead() && potential_enemy.team != character.team):
+					enemies.append(potential_enemy)
+	return enemies
+
 func next_turn() -> bool:
 	var start_turn: int = turn
 	while true:
@@ -104,4 +133,14 @@ func next_turn() -> bool:
 	
 	
 func game_end() -> void:
-	pass
+	print("GAME OVER")
+	var living_chars: Array[Character] = children.filter(func(character): return !character.isDead())
+	var winning_team: String
+	if living_chars[0].team == 1:
+		winning_team = "Enemy Team"
+	else:
+		winning_team = "Player Team"
+		
+	print(winning_team + " Wins")
+	
+	game_over = true
